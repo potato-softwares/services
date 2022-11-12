@@ -3,7 +3,7 @@ export default ({ env }) => {
   return {
     auth: { secret: env("ADMIN_JWT_SECRET") },
     apiToken: { salt: env("API_TOKEN_SALT") },
-    webpack: (config, webpack) => {
+    webpack: (config) => {
       config.devServer = {
         host: "0.0.0.0",
         public: env("GITPOD_WORKSPACE_URL", "").replace(
