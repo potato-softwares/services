@@ -9,8 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: find * ! -name '.' ! -name '..' ! -name 'api' -type d -exec rm -rf {} +
-      - run: cp -R api/* ./ 
+      - run: cp -R api /tmp/api
+      - run: rm -rf *
+      - run: cp -R /tmp/api ./
       - run: ls -al
       - uses: actions/setup-node@v3
         with:
