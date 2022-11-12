@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cp -R api /tmp/api
+      - run: ls -al
       - run: rm -rf *
       - run: cp -R /tmp/api ./
       - run: ls -al
