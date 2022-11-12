@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: find . ! -name 'api' -exec rm -rf {} +
+      - run: cp -R api/* ./
+      - run: ls -al
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
