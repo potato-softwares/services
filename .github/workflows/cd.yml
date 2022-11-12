@@ -13,6 +13,7 @@ jobs:
       - run: ls -al
       - run: rm -rf *
       - run: ls -al
+      - run: ls -al /tmp/api
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
@@ -23,7 +24,7 @@ jobs:
           NODE_ENV: production
       - uses: easingthemes/ssh-deploy@main
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: -avzr --delete
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
