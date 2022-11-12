@@ -10,10 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cp -R api /tmp/api
-      - run: ls -al
       - run: rm -rf *
       - run: cp -R /tmp/api/* ./
-      - run: ls -al
+      - run: echo "${{ secrets.ENV }}" > .env
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
